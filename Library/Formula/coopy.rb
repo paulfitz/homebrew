@@ -8,9 +8,12 @@ class Coopy < Formula
 
   depends_on 'cmake' => :build
 
+  depends_on 'mdbtools'
+  depends_on 'mysql-connector-c'
+
   def install
     ENV.m32   # native wxwidgets on snow leopard seems to need this
-    system "cmake . #{std_cmake_parameters}"
+    system "cmake #{std_cmake_parameters} -DUSE_ACCESS=TRUE -DUSE_REMOTE_SQL=TRUE -DUSE_MYSQL=TRUE"
     system "make install"
   end
 end

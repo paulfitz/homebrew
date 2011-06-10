@@ -9,7 +9,14 @@ class MysqlConnectorC < Formula
 
   fails_with_llvm "error: unsupported inline asm"
 
+  def options
+  [
+    ['--universal', 'Build universal binaries.'],
+  ]
+  end
+
   def install
+    ENV.universal_binary if ARGV.build_universal?
     system "cmake . #{std_cmake_parameters}"
     system 'make'
     ENV.j1
