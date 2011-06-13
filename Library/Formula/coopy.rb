@@ -10,10 +10,13 @@ class Coopy < Formula
 
   depends_on 'mdbtools'
   depends_on 'mysql-connector-c'
+  depends_on 'gnumeric'
+  depends_on 'gettext'
 
   def install
     ENV.m32   # native wxwidgets on snow leopard seems to need this
-    system "cmake #{std_cmake_parameters} -DUSE_ACCESS=TRUE -DUSE_REMOTE_SQL=TRUE -DUSE_MYSQL=TRUE"
+    # make sure everything else is compatible (use --universal flag)
+    system "cmake #{std_cmake_parameters} -DUSE_ACCESS=TRUE -DUSE_REMOTE_SQL=TRUE -DUSE_MYSQL=TRUE -DUSE_GNUMERIC=TRUE"
     system "make install"
   end
 end

@@ -8,7 +8,14 @@ class Libglade < Formula
   depends_on 'libxml2'
   depends_on 'gtk+'
 
+  def options
+  [
+    ['--universal', 'Build universal binaries.'],
+  ]
+  end
+
   def install
+    ENV.universal_binary if ARGV.build_universal?
     system "./configure", "--prefix=#{prefix}", "--disable-dependency-tracking"
     system "make install"
   end

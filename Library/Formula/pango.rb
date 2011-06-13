@@ -15,8 +15,15 @@ class Pango < Formula
     depends_on 'cairo' # Leopard doesn't come with Cairo.
   end
 
+  def options
+  [
+    ['--universal', 'Build universal binaries.'],
+  ]
+  end
+
   def install
-    system "./configure", "--prefix=#{prefix}", "--with-x"
+    ENV.universal_binary if ARGV.build_universal?
+    system "./configure", "--prefix=#{prefix}", "--with-x", "--disable-dependency-tracking"
     system "make install"
   end
 end

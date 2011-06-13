@@ -1,13 +1,13 @@
 require 'formula'
 
-class Libgsf < Formula
-  url 'http://ftp.acc.umu.se/pub/GNOME/sources/libgsf/1.14/libgsf-1.14.17.tar.bz2'
-  homepage 'http://directory.fsf.org/project/libgsf/'
-  sha256 '10c6b69149e424ac5f325eb247fdf640ddd949952f21b99a890e73f9d4276876'
+class Goffice < Formula
+  url 'http://ftp.gnome.org/pub/gnome/sources/goffice/0.8/goffice-0.8.12.tar.bz2'
+  homepage 'http://freshmeat.net/projects/goffice/'
+  sha256 'c165f8b7aaab709295c8225b30f49fe75655149b982fd045d8c23bb7772eb22a'
 
   depends_on 'pkg-config' => :build
+  depends_on 'libgsf'
   depends_on 'gettext'
-  depends_on 'glib'
   depends_on 'intltool'
 
   def options
@@ -19,7 +19,7 @@ class Libgsf < Formula
   def install
     ENV.universal_binary if ARGV.build_universal?
     system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+                          "--prefix=#{prefix}", "--without-gconf"
     system "make install"
   end
 end
