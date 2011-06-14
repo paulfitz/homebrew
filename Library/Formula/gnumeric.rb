@@ -9,6 +9,10 @@ class Gnumeric < Formula
   depends_on 'gettext'
   depends_on 'glib'
   depends_on 'intltool'
+  depends_on 'libglade'
+  depends_on 'goffice'
+  depends_on 'libgsf'
+  depends_on 'gtk+'
 
   def options
   [
@@ -21,6 +25,8 @@ class Gnumeric < Formula
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}", "--disable-schemas-install", "--without-gda", "--without-paradox",
                           "--without-psiconv", "--without-python"
+    system "make"
+    system "cd doc/C; make gnumeric-C.omf.out"
     system "make install"
   end
 end
