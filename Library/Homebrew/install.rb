@@ -65,6 +65,13 @@ def install f
     end
   end
 
+  compile_flags = "-mmacosx-version-min=10.5 -isysroot #{MacOS.xcode_prefix}/SDKs/MacOSX10.5.sdk"
+  ENV.prepend 'CFLAGS', compile_flags
+  ENV.prepend 'CXXFLAGS', compile_flags
+  ENV.prepend 'FFLAGS', compile_flags
+  ENV.prepend 'LDFLAGS', compile_flags
+  puts "CFLAGS are #{ENV['CFLAGS']}"
+
   build_time = nil
   begin
     f.brew do
