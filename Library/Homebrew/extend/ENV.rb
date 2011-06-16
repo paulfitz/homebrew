@@ -45,7 +45,7 @@ module HomebrewEnvExtension
     # http://gcc.gnu.org/onlinedocs/gcc-4.2.1/gcc/i386-and-x86_002d64-Options.html
     # We don't set, eg. -msse3 because the march flag does that for us:
     # http://gcc.gnu.org/onlinedocs/gcc-4.3.3/gcc/i386-and-x86_002d64-Options.html
-    if MACOS_VERSION >= 10.6
+    if MACOS_VERSION >= 10.9 # SKIP
       case Hardware.intel_family
       when :nehalem, :penryn, :core2
         # the 64 bit compiler adds -mfpmath=sse for us
@@ -62,13 +62,13 @@ module HomebrewEnvExtension
       end
     else
       # gcc 4.0 didn't support msse4
-      case Hardware.intel_family
-      when :nehalem, :penryn, :core2
-        cflags<<"-march=nocona"
-      when :core
-        cflags<<"-march=prescott"
-      end
-      cflags<<"-mfpmath=sse"
+      #case Hardware.intel_family
+      #when :nehalem, :penryn, :core2
+      #  cflags<<"-march=nocona"
+      #when :core
+      #  cflags<<"-march=prescott"
+      #end
+      #cflags<<"-mfpmath=sse"
     end
 
     self['CFLAGS'] = self['CXXFLAGS'] = "#{cflags*' '} #{SAFE_CFLAGS_FLAGS}"
