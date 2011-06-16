@@ -72,6 +72,12 @@ def install f
   ENV.prepend 'LDFLAGS', compile_flags
   puts "CFLAGS are #{ENV['CFLAGS']}"
 
+  if ARGV.flag? '--universal'
+    ENV.universal_binary
+  end
+
+  puts "CFLAGS are #{ENV['CFLAGS']}"
+
   build_time = nil
   begin
     f.brew do
