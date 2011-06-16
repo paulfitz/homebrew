@@ -9,6 +9,7 @@ class Goffice < Formula
   depends_on 'libgsf'
   depends_on 'gettext'
   depends_on 'intltool'
+  depends_on 'pcre'
 
   def options
   [

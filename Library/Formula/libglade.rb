@@ -7,6 +7,7 @@ class Libglade < Formula
 
   depends_on 'libxml2'
   depends_on 'gtk+'
+  depends_on 'cairo'
 
   def options
   [
