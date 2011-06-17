@@ -13,6 +13,7 @@ class Gnumeric < Formula
   depends_on 'goffice'
   depends_on 'libgsf'
   depends_on 'gtk+'
+  depends_on 'cairo'
 
   def options
   [

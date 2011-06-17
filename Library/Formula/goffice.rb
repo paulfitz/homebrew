@@ -10,6 +10,7 @@ class Goffice < Formula
   depends_on 'gettext'
   depends_on 'intltool'
   depends_on 'pcre'
+  depends_on 'cairo'
 
   def options
   [
