@@ -16,7 +16,9 @@ class Cairo < Formula
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
-                          "--with-x"
+                          "--with-x",
+                          "--enable-png=no",  # png version picked up is wrong
+                          "--enable-svg=no"   # knock on effect
     system "make install"
   end
 end
