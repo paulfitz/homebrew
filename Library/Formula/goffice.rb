@@ -11,6 +11,7 @@ class Goffice < Formula
   depends_on 'intltool'
   depends_on 'pcre'
   depends_on 'cairo'
+  depends_on 'libpng'
 
   def options
   [

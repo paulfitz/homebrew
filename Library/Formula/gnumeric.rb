@@ -14,6 +14,7 @@ class Gnumeric < Formula
   depends_on 'libgsf'
   depends_on 'gtk+'
   depends_on 'cairo'
+  depends_on 'libpng'
 
   def options
   [

@@ -7,6 +7,7 @@ class Cairo < Formula
 
   depends_on 'pkg-config' => :build
   depends_on 'pixman'
+  depends_on 'libpng'
 
   keg_only :provided_by_osx,
             "The Cairo provided by Leopard is too old for newer software to link against."
@@ -16,9 +17,7 @@ class Cairo < Formula
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
-                          "--with-x",
-                          "--enable-png=no",  # png version picked up is wrong
-                          "--enable-svg=no"   # knock on effect
+                          "--with-x"
     system "make install"
   end
 end
