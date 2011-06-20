@@ -16,6 +16,10 @@ class Pango < Formula
   depends_on 'libpng'
   #end
 
+  def patches
+    DATA
+  end
+
   def options
   [
     ['--universal', 'Build universal binaries.'],
@@ -28,3 +32,24 @@ class Pango < Formula
     system "make install"
   end
 end
+
+__END__
+--- a/pango/pango-utils.c	2011-06-20 19:43:00.000000000 +0200
++++ pango-1.28.4/pango/pango-utils.c	2011-06-20 19:40:56.000000000 +0200
+@@ -652,6 +652,16 @@
+ 
+   read_config ();
+ 
++  /*printf("  checking key %s\n", key);*/
++  if (strcmp(key,"Pango/ModuleFiles")==0) {
++      const char *envvar;
++      envvar = g_getenv ("PANGO_MODULE_FILE");
++      if (envvar) {
++        /*printf("  %s --> %s \n", key, envvar);*/
++        return g_strdup(envvar);
++      }
++  }
++
+   return g_strdup (g_hash_table_lookup (config_hash, key));
+ }
+ 
