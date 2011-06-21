@@ -75,11 +75,11 @@ __END__
 +sprintf(ppath,"%s/../Frameworks/etc/pango/pango.rc",path);
 +setenv("PANGO_RC_FILE",ppath,1);
 +/*printf("-> %s\n", ppath);*/
-+}
 +if (getenv("PANGO_MODULE_FILE")==NULL) {
 +char mpath[8192];
 +sprintf(mpath,"%s/../Frameworks/etc/pango/pango.modules",path);
 +setenv("PANGO_MODULE_FILE",mpath,1);
++}
 +}
 +
  	g_thread_init (NULL);

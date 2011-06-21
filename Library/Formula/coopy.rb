@@ -12,6 +12,7 @@ class Coopy < Formula
   depends_on 'mysql-connector-c'
   depends_on 'gnumeric'
   depends_on 'gettext'
+  depends_on 'wxmac'
 
   def install
     ENV.m32   # native wxwidgets on snow leopard seems to need this
