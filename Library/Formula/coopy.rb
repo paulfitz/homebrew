@@ -1,9 +1,8 @@
 require 'formula'
 
 class Coopy < Formula
-  url 'https://github.com/paulfitz/coopy/tarball/v0.5.4'
-  md5 '656b79be1ab806c94029b7697702f9bb'
-  homepage 'http://coopy.sourceforge.net'
+  url 'https://github.com/paulfitz/coopy/tarball/v0.5.5'
+  homepage 'http://share.find.coop'
   head 'git://github.com/paulfitz/coopy.git'
 
   depends_on 'cmake' => :build
