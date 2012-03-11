@@ -16,7 +16,7 @@ class Coopy < Formula
   def install
     ENV.m32   # native wxwidgets on snow leopard seems to need this
     # make sure everything else is compatible (use --universal flag)
-    system "cmake #{std_cmake_parameters} -DUSE_ACCESS=TRUE -DUSE_REMOTE_SQL=TRUE -DUSE_MYSQL=TRUE -DUSE_GNUMERIC=TRUE"
+    system "cmake #{std_cmake_parameters} -DUSE_ACCESS=TRUE -DUSE_REMOTE_SQL=TRUE -DUSE_MYSQL=TRUE -DUSE_GNUMERIC=TRUE -DCREATE_SHARED_LIBRARIES=FALSE"
     system "make install"
   end
 end
