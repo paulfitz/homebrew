@@ -5,7 +5,7 @@ class Yarp < Formula
   url 'http://downloads.sourceforge.net/yarp0/yarp-2.3.20.tar.gz'
   sha1 '7c9283bfe07b4da2f7c92ec584497d66248adb42'
 
-  head 'https://yarp0.svn.sourceforge.net/svnroot/yarp0/trunk/yarp2'
+  head 'https://github.com/paulfitz/yarp.git', :branch => 'homebrew-fixes'
 
   depends_on 'pkg-config' => :build
   depends_on 'cmake' => :build
@@ -13,7 +13,6 @@ class Yarp < Formula
   depends_on 'gsl'
   depends_on 'gtk+'
   depends_on 'gtkmm'
-  depends_on 'libglademm'
   depends_on 'sqlite'
   depends_on 'readline'
   depends_on 'jpeg'
@@ -38,6 +37,7 @@ class Yarp < Formula
       -DCREATE_YARPVIEW=TRUE
       -DCREATE_YARPSCOPE=TRUE
       -DCREATE_GYARPMANAGER=TRUE
+      -DYARP_USE_GTK2=TRUE
       .]
 
     system "cmake", *args
